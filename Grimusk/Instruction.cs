@@ -18,7 +18,25 @@ namespace Grimusk
         {
             opcode = _opcode;
             addr = _addr;
+            int slot = NextFreeInstructionSlot();
+            Program.window.Instructions.Items.RemoveAt(slot);
+            string repr = (opcode.ToString() + ": " + addr[0].ToString() + " | " + addr[1].ToString());
+            Program.window.Instructions.Items.Insert(slot, repr);
         }
+
+        public int NextFreeInstructionSlot()
+        {
+            int slot = 0;
+            bool found = false;
+            while (!found && slot < Memory.GetSize() - 1)
+            {
+                string query = Program.window.Instructions.Items[slot].ToString();
+                if (query.Contains("0x")) found = true;
+                else slot++;
+            }
+            return slot;
+        }
+
         public string OpcodeString(short _opcode)
         {   
             return _opcode.ToString();

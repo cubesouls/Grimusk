@@ -13,11 +13,15 @@ namespace Grimusk
         public static int[] data = new int[size];
         public static short FindNextAddress() // encontra o prox endereco nao utilizado de memoria
         {
-            short addr = 0;
+            short addr = -1;
             short x = 0;
-            while (addr == 0)
+            while (addr == -1)
             {
-                if (instructions[x].opcode == 0)
+                if (instructions[x] == null)
+                {
+                    addr = x;
+                }
+                else if (instructions[x].opcode == 0)
                 {
                     addr = x;
                 }
