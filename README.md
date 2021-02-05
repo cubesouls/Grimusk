@@ -1,4 +1,6 @@
-# Grimusk
+# Grimusk antigo (deprecated)
+
+## Atenção: este projeto foi substituído pelo novo Grimusk (https://github.com/nullcst/Grimusk)
 
 Projeto de máquina virtual para a UFOP (Universidade Federal de Ouro Preto), Ciências da Computação: BCC 266
 
